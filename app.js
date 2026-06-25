@@ -157,8 +157,8 @@ function preloadImages() {
   
   // Set up array with placeholders
   for (let i = 1; i <= totalFrames; i++) {
-    // On mobile, load every second frame to optimize performance and save bandwidth
-    if (isMobile && i % 2 === 0 && i !== 1 && i !== totalFrames) {
+    // On mobile, load every fourth frame to optimize performance and save bandwidth (under 8-10MB target)
+    if (isMobile && i % 4 !== 1 && i !== totalFrames) {
       images.push(null);
       continue;
     }

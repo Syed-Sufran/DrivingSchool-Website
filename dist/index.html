@@ -7,191 +7,11 @@
   <title>Shariff Driving School | Learn Driving with Confidence in Bangalore</title>
   <meta name="description"
     content="Learn driving with confidence in Bangalore. Powered by Shariff Auto Consultants' 15+ years of RTO expertise. Offering car & bike training with flexible timings." />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "surface-container-low": "#1c1b1b",
-            "on-primary-fixed-variant": "#5b4300",
-            "on-surface": "#e5e2e1",
-            "tertiary-fixed": "#e5e2e1",
-            "on-primary": "#3f2e00",
-            "secondary-fixed-dim": "#f7bd48",
-            "secondary": "#f7bd48",
-            "surface-bright": "#3a3939",
-            "primary-fixed-dim": "#fabd00",
-            "on-error": "#690005",
-            "surface-container-high": "#2a2a2a",
-            "tertiary-fixed-dim": "#c8c6c5",
-            "on-secondary": "#412d00",
-            "surface-variant": "#353534",
-            "secondary-fixed": "#ffdea6",
-            "background": "#131313",
-            "on-secondary-fixed": "#271900",
-            "on-tertiary-fixed-variant": "#474746",
-            "surface": "#131313",
-            "outline": "#9c8f78",
-            "error": "#ffb4ab",
-            "tertiary": "#e9e6e6",
-            "on-tertiary-fixed": "#1c1b1b",
-            "primary-fixed": "#ffdf9e",
-            "surface-container-highest": "#353534",
-            "inverse-primary": "#785900",
-            "surface-dim": "#131313",
-            "on-primary-fixed": "#261a00",
-            "surface-container-lowest": "#0e0e0e",
-            "on-tertiary-container": "#565555",
-            "error-container": "#93000a",
-            "on-secondary-container": "#392700",
-            "surface-container": "#201f1f",
-            "surface-tint": "#fabd00",
-            "outline-variant": "#4f4632",
-            "on-secondary-fixed-variant": "#5d4200",
-            "primary": "#ffe4af",
-            "on-primary-container": "#6d5100",
-            "inverse-surface": "#e5e2e1",
-            "primary-container": "#ffc107",
-            "on-tertiary": "#313030",
-            "tertiary-container": "#cdcaca",
-            "inverse-on-surface": "#313030",
-            "on-error-container": "#ffdad6",
-            "secondary-container": "#ba880f",
-            "on-surface-variant": "#d4c5ab",
-            "on-background": "#e5e2e1"
-          },
-          "borderRadius": {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-          },
-          "spacing": {
-            "unit": "8px",
-            "margin-mobile": "20px",
-            "max-width": "1440px",
-            "margin-desktop": "80px",
-            "gutter": "24px"
-          },
-          "fontFamily": {
-            "headline-lg": ["Sora"],
-            "body-md": ["Inter"],
-            "body-lg": ["Inter"],
-            "title-md": ["Sora"],
-            "headline-lg-mobile": ["Sora"],
-            "display-lg": ["Sora"],
-            "label-sm": ["JetBrains Mono"]
-          },
-          "fontSize": {
-            "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-            "title-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-            "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
-            "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }]
-          }
-        },
-      },
-    }
-  </script>
-  <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
-    .gate-pattern {
-      background-image: radial-gradient(circle at 2px 2px, rgba(184, 134, 11, 0.15) 1px, transparent 0);
-      background-size: 40px 40px;
-    }
-
-    .glow-button:hover {
-      box-shadow: 0px 4px 20px rgba(250, 189, 0, 0.4);
-    }
-
-    .scroll-fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-
-    .scroll-fade.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #0e0e0e;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #353534;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #f7bd48;
-    }
-
-    .pricing-card-hover:hover {
-      border-color: rgba(250, 189, 0, 0.4);
-      transform: translateY(-8px);
-    }
-
-    .wa-pill.active-pill {
-      background-color: rgba(250, 189, 0, 0.15) !important;
-      border-color: #fabd00 !important;
-      color: #fabd00 !important;
-      box-shadow: 0 0 12px rgba(250, 189, 0, 0.2);
-    }
-
-    .trust-card {
-      position: relative;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-
-    .trust-card::after {
-      content: "";
-      border-radius: inherit;
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      box-shadow: 0 15px 30px rgba(250, 189, 0, 0.2);
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-
-    .trust-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      border-color: rgba(250, 189, 0, 0.45);
-      background-color: rgba(28, 27, 27, 0.98);
-    }
-
-    .trust-card:hover::after {
-      opacity: 1;
-    }
-
-    /* Spacing for mobile fixed bottom bar */
-    @media (max-width: 767px) {
-      body {
-        padding-bottom: 70px;
-      }
-    }
-  </style>
-  <script type="module" crossorigin src="/assets/index-52aruGpV.js"></script>
+  <script type="module" crossorigin src="/assets/index-Cvsq2JiG.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D5c5MS4P.css">
 </head>
 
 <body
@@ -265,14 +85,14 @@
           target="_blank">
           Book
         </a>
-        <button onclick="toggleMobileMenu()" class="text-primary focus:outline-none flex items-center">
+        <button id="mobile-menu-button" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu" class="text-primary focus:outline-none flex items-center">
           <span id="menu-icon" class="material-symbols-outlined text-3xl">menu</span>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu"
+    <div id="mobile-menu" aria-label="Mobile Navigation"
       class="hidden md:hidden bg-background border-t border-outline-variant/15 px-margin-mobile py-4 space-y-4 shadow-xl">
       <a class="block font-title-md text-sm uppercase tracking-wider text-on-surface hover:text-primary transition-colors py-1"
         href="#" onclick="toggleMobileMenu()">Home</a>
@@ -952,7 +772,7 @@
           class="relative rounded-xl overflow-hidden shadow-2xl bg-surface-container-high border border-outline-variant/10">
           <img class="w-full h-auto grayscale-[20%] hover:grayscale-0 transition-all duration-700 object-cover"
             alt="A friendly, reassuring driving instructor teaching a beginner student with dual controls"
-            src="dist/assets/Images/Instructor.png" />
+            src="https://res-console.cloudinary.com/drtmd4wq1/thumbnails/v1/image/upload/v1782424898/SW5zdHJ1Y3Rvcl91am9rcTY=/drilldown" />
         </div>
       </div>
     </div>
@@ -982,7 +802,8 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-10">
         <!-- Review 1 -->
-        <div class="trust-card bg-background p-6 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
+        <div
+          class="trust-card bg-background p-6 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
           <div>
             <div class="flex text-primary mb-3">
               <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -1012,7 +833,8 @@
           </div>
         </div>
         <!-- Review 2 -->
-        <div class="trust-card bg-background p-6 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
+        <div
+          class="trust-card bg-background p-6 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
           <div>
             <div class="flex text-primary mb-3">
               <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -1040,7 +862,8 @@
           </div>
         </div>
         <!-- Review 3 -->
-        <div class="trust-card bg-background p-6 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
+        <div
+          class="trust-card bg-background p-6 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
           <div>
             <div class="flex text-primary mb-3">
               <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -1595,14 +1418,30 @@
     window.toggleMobileMenu = function () {
       const menu = document.getElementById('mobile-menu');
       const icon = document.getElementById('menu-icon');
+      const button = document.getElementById('mobile-menu-button');
       if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
         icon.innerText = 'close';
+        if (button) button.setAttribute('aria-expanded', 'true');
       } else {
         menu.classList.add('hidden');
         icon.innerText = 'menu';
+        if (button) button.setAttribute('aria-expanded', 'false');
       }
     }
+
+    // Close mobile menu when clicking outside of it or the toggle button
+    document.addEventListener('click', (event) => {
+      const menu = document.getElementById('mobile-menu');
+      const button = document.getElementById('mobile-menu-button');
+      if (!menu || !button) return;
+      if (!menu.contains(event.target) && !button.contains(event.target) && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        const icon = document.getElementById('menu-icon');
+        if (icon) icon.innerText = 'menu';
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
 
     // Enquiry Builder State
     let enquiry = {
@@ -1634,7 +1473,11 @@
       const baseUrl = "https://wa.me/917795488013";
       const message = `Hi Shariff Driving School,\n\nI want to book a free consultation.\n\nHere are my preferences:\n- What to learn: ${enquiry.vehicle}\n- Experience: ${enquiry.experience}\n- Preferred Batch: ${enquiry.batch}\n- Preferred Branch: ${enquiry.branch}\n- Doorstep Pickup: ${enquiry.pickup}`;
       const encodedMessage = encodeURIComponent(message);
-      window.open(`${baseUrl}?text=${encodedMessage}`, '_blank');
+      const url = `${baseUrl}?text=${encodedMessage}`;
+      const opened = window.open(url, '_blank');
+      if (!opened) {
+        window.location.href = url;
+      }
     }
   </script>
   <!-- Load custom scroll-video controller script -->

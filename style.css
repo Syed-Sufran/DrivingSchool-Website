@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.gate-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(184, 134, 11, 0.15) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.glow-button:hover {
+  box-shadow: 0px 4px 20px rgba(250, 189, 0, 0.4);
+}
+
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #353534;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f7bd48;
+}
+
+.pricing-card-hover:hover {
+  border-color: rgba(250, 189, 0, 0.4);
+  transform: translateY(-8px);
+}
+
+.wa-pill.active-pill {
+  background-color: rgba(250, 189, 0, 0.15) !important;
+  border-color: #fabd00 !important;
+  color: #fabd00 !important;
+  box-shadow: 0 0 12px rgba(250, 189, 0, 0.2);
+}
+
+.trust-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.trust-card::after {
+  content: "";
+  border-radius: inherit;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  box-shadow: 0 15px 30px rgba(250, 189, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.trust-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(250, 189, 0, 0.45);
+  background-color: rgba(28, 27, 27, 0.98);
+}
+
+.trust-card:hover::after {
+  opacity: 1;
+}
+
+/* Spacing for mobile fixed bottom bar */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 70px;
+  }
+}

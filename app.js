@@ -96,7 +96,6 @@ function resizeCanvas() {
 // Dynamically transition and animate text overlays based on scroll position fraction (0 to 1)
 function updateOverlays(fraction) {
   const headline = document.getElementById('initial-headline-overlay');
-  const nav = document.getElementById('top-nav');
 
   // Headline fade out (0% to 30% scroll)
   if (fraction <= 0.30) {
@@ -111,29 +110,6 @@ function updateOverlays(fraction) {
       headline.style.opacity = 0;
       headline.style.transform = 'scale(0.95)';
       headline.style.pointerEvents = 'none';
-    }
-  }
-
-  // Navigation Bar slide-in (85% to 95% scroll)
-  if (fraction >= 0.85) {
-    const p = Math.min(1, (fraction - 0.85) / 0.10); // 0 to 1
-    if (nav) {
-      nav.style.opacity = p;
-      nav.style.transform = `translateY(${(p - 1) * 100}%)`;
-      if (p > 0) {
-        nav.classList.remove('pointer-events-none');
-        nav.classList.add('pointer-events-auto');
-      } else {
-        nav.classList.remove('pointer-events-auto');
-        nav.classList.add('pointer-events-none');
-      }
-    }
-  } else {
-    if (nav) {
-      nav.style.opacity = 0;
-      nav.style.transform = 'translateY(-100%)';
-      nav.classList.remove('pointer-events-auto');
-      nav.classList.add('pointer-events-none');
     }
   }
 }
@@ -175,40 +151,94 @@ function onScrollUpdate() {
   }
 }
 
-// Preload assets
+// Preload assets progressively
 function preloadImages() {
+  const isMobile = window.innerWidth < 768;
+  
+  // Set up array with placeholders
   for (let i = 1; i <= totalFrames; i++) {
+    // On mobile, load every second frame to optimize performance and save bandwidth
+    if (isMobile && i % 2 === 0 && i !== 1 && i !== totalFrames) {
+      images.push(null);
+      continue;
+    }
     const img = new Image();
     img.src = getFrameName(i);
-    img.onload = () => {
-      loadedCount++;
-      const progressPercent = Math.floor((loadedCount / totalFrames) * 100);
-
-      if (loadingProgressText) {
-        loadingProgressText.innerText = `${progressPercent}%`;
-      }
-      if (loadingProgressBar) {
-        loadingProgressBar.style.width = `${progressPercent}%`;
-      }
-
-      // Draw first frame immediately to avoid a blank screen
-      if (i === 1) {
-        drawFrame(0);
-      }
-
-      // Check if all images have finished loading
-      if (loadedCount === totalFrames) {
-        startWebsite();
-      }
-    };
-    img.onerror = () => {
-      loadedCount++;
-      if (loadedCount === totalFrames) {
-        startWebsite();
-      }
-    };
     images.push(img);
   }
+
+  // Load Frame 1 first to display it immediately
+  const frame1 = images[0];
+  if (frame1) {
+    frame1.onload = () => {
+      drawFrame(0);
+      startWebsite();
+      loadRemainingFrames();
+    };
+    frame1.onerror = () => {
+      startWebsite();
+      loadRemainingFrames();
+    };
+  } else {
+    startWebsite();
+  }
+}
+
+// Background loading of remaining frames in a throttled loop
+function loadRemainingFrames() {
+  const queue = [];
+  
+  // Priority: next 15 frames for smooth initial scroll
+  for (let i = 1; i < Math.min(15, totalFrames); i++) {
+    if (images[i] && !images[i].complete) {
+      queue.push(i);
+    }
+  }
+  
+  // Then the rest of the frames
+  for (let i = 15; i < totalFrames; i++) {
+    if (images[i] && !images[i].complete) {
+      queue.push(i);
+    }
+  }
+
+  let index = 0;
+  
+  function loadNext() {
+    if (index >= queue.length) {
+      return; // All queued frames attempted
+    }
+    
+    const frameIdx = queue[index];
+    const img = images[frameIdx];
+    
+    if (img && !img.complete) {
+      img.onload = () => {
+        loadedCount++;
+        index++;
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => loadNext());
+        } else {
+          setTimeout(loadNext, 15);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        index++;
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => loadNext());
+        } else {
+          setTimeout(loadNext, 15);
+        }
+      };
+    } else {
+      index++;
+      loadNext();
+    }
+  }
+  
+  // Stagger start slightly to let the site render fully
+  setTimeout(loadNext, 100);
 }
 
 // Initialize active scrolling and event listeners only after preload is fully complete

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Shariff Driving Academy | Bangalore's Premier Driving Academy</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#1c1b1b",
+            "on-primary-fixed-variant": "#5b4300",
+            "on-surface": "#e5e2e1",
+            "tertiary-fixed": "#e5e2e1",
+            "on-primary": "#3f2e00",
+            "secondary-fixed-dim": "#f7bd48",
+            "secondary": "#f7bd48",
+            "surface-bright": "#3a3939",
+            "primary-fixed-dim": "#fabd00",
+            "on-error": "#690005",
+            "surface-container-high": "#2a2a2a",
+            "tertiary-fixed-dim": "#c8c6c5",
+            "on-secondary": "#412d00",
+            "surface-variant": "#353534",
+            "secondary-fixed": "#ffdea6",
+            "background": "#131313",
+            "on-secondary-fixed": "#271900",
+            "on-tertiary-fixed-variant": "#474746",
+            "surface": "#131313",
+            "outline": "#9c8f78",
+            "error": "#ffb4ab",
+            "tertiary": "#e9e6e6",
+            "on-tertiary-fixed": "#1c1b1b",
+            "primary-fixed": "#ffdf9e",
+            "surface-container-highest": "#353534",
+            "inverse-primary": "#785900",
+            "surface-dim": "#131313",
+            "on-primary-fixed": "#261a00",
+            "surface-container-lowest": "#0e0e0e",
+            "on-tertiary-container": "#565555",
+            "error-container": "#93000a",
+            "on-secondary-container": "#392700",
+            "surface-container": "#201f1f",
+            "surface-tint": "#fabd00",
+            "outline-variant": "#4f4632",
+            "on-secondary-fixed-variant": "#5d4200",
+            "primary": "#ffe4af",
+            "on-primary-container": "#6d5100",
+            "inverse-surface": "#e5e2e1",
+            "primary-container": "#ffc107",
+            "on-tertiary": "#313030",
+            "tertiary-container": "#cdcaca",
+            "inverse-on-surface": "#313030",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#ba880f",
+            "on-surface-variant": "#d4c5ab",
+            "on-background": "#e5e2e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "unit": "8px",
+            "margin-mobile": "20px",
+            "max-width": "1440px",
+            "margin-desktop": "80px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Sora"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "title-md": ["Sora"],
+            "headline-lg-mobile": ["Sora"],
+            "display-lg": ["Sora"],
+            "label-sm": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "title-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .gate-pattern {
+      background-image: radial-gradient(circle at 2px 2px, rgba(184, 134, 11, 0.15) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    .glow-button:hover {
+      box-shadow: 0px 4px 20px rgba(250, 189, 0, 0.4);
+    }
+
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0e0e0e;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #353534;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f7bd48;
+    }
+
+    .pricing-card-hover:hover {
+      border-color: rgba(250, 189, 0, 0.4);
+      transform: translateY(-8px);
+    }
+
+    .wa-pill.active-pill {
+      background-color: rgba(250, 189, 0, 0.15) !important;
+      border-color: #fabd00 !important;
+      color: #fabd00 !important;
+      box-shadow: 0 0 12px rgba(250, 189, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- PRELOADER SCREEN -->
+  <div id="loading-screen"
+    class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-500">
+    <div class="text-center px-4">
+      <div class="font-headline-lg text-primary text-4xl md:text-5xl mb-4 tracking-tighter uppercase">SHARIFF ACADEMY
+      </div>
+      <div class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-6 text-xs md:text-sm">PRELOADING
+        EXPERIENCE</div>
+
+      <!-- Progress Bar Outer -->
+      <div class="w-64 h-1.5 bg-surface-container-high rounded-full overflow-hidden mx-auto mb-2">
+        <!-- Progress Bar Inner -->
+        <div id="loading-progress-bar" class="h-full bg-primary transition-all duration-100" style="width: 0%;"></div>
+      </div>
+
+      <div id="loading-progress-text" class="text-primary font-label-sm text-sm">0%</div>
+    </div>
+  </div>
+
+  <!-- TopNavBar -->
+  <nav id="top-nav"
+    class="bg-background/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-in-out shadow-[0_4px_20px_rgba(250,189,0,0.15)] opacity-0 pointer-events-none -translate-y-full">
+    <div
+      class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto">
+      <div class="font-headline-lg text-headline-lg text-primary tracking-tighter uppercase">Shariff Academy</div>
+      <div class="hidden md:flex items-center gap-10">
+        <a class="font-title-md text-title-md uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+          href="#services">Services</a>
+        <a class="font-title-md text-title-md uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+          href="#why-us">Expertise</a>
+        <a class="font-title-md text-title-md uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+          href="#pricing">Pricing</a>
+        <a class="font-title-md text-title-md uppercase tracking-widest bg-primary text-on-primary px-6 py-2 rounded-lg hover:scale-105 transition-transform duration-300"
+          href="#contact">Book Now</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a class="font-title-md text-sm uppercase tracking-wider bg-primary text-on-primary px-4 py-2 rounded-lg hover:scale-105 transition-transform duration-300 md:hidden"
+          href="#contact">Book Now</a>
+        <button class="md:hidden text-primary">
+          <span class="material-symbols-outlined text-4xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Scroll-Linked Canvas Video Hero Section -->
+  <div id="hero-scroll-container" class="relative h-[300vh] w-full bg-background">
+    <!-- Sticky Canvas Holder -->
+    <header class="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <!-- Canvas Layer -->
+      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full object-cover z-0"></canvas>
+
+      <!-- Ambient Gradient Layer to ensure text legibility -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-background/50 z-10 pointer-events-none">
+      </div>
+
+      <!-- Narrative Text & Actions Overlays -->
+      <div class="relative z-20 w-full h-full flex items-center justify-center">
+
+        <!-- Centered Headline Overlay -->
+        <div id="initial-headline-overlay"
+          class="absolute inset-0 flex flex-col items-center justify-center text-center px-margin-mobile z-20 plate-reveal">
+          <div
+            class="inline-flex items-center gap-4 border border-primary/50 bg-surface-container-lowest/50 px-10 py-4 md:px-14 md:py-5 rounded-md backdrop-blur-sm select-none">
+            <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+            <span class="font-mono font-bold text-primary tracking-[0.3em] text-xl md:text-3xl uppercase">
+              SHARIFF DRIVING SCHOOL
+            </span>
+            <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+          </div>
+          <div class="h-px w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto mt-6"></div>
+        </div>
+
+      </div>
+    </header>
+  </div>
+
+  <!-- Trust Bar -->
+  <section class="bg-surface-container-lowest border-y border-outline-variant/10 py-12">
+    <div
+      class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+      <div class="flex flex-col items-center">
+        <span class="font-display-lg text-headline-lg text-primary">15+</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Years Experience</span>
+      </div>
+      <div class="flex flex-col items-center border-l md:border-l border-outline-variant/20">
+        <span class="font-display-lg text-headline-lg text-primary">10k+</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Students Trained</span>
+      </div>
+      <div class="flex flex-col items-center border-l border-outline-variant/20">
+        <span class="font-display-lg text-headline-lg text-primary">RTO</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Full Assistance</span>
+      </div>
+      <div class="flex flex-col items-center border-l border-outline-variant/20">
+        <span class="font-display-lg text-headline-lg text-primary">ALL</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">License Types</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop" id="services">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div class="max-w-xl">
+        <span class="font-label-sm text-label-sm text-primary uppercase mb-4 block">Our Training Fleet</span>
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Precision Training for
+          Every Vehicle</h2>
+      </div>
+      <p class="text-on-surface-variant max-w-sm">From luxury sedans to high-performance bikes, we offer tailored
+        coaching for all vehicle categories.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <!-- Service Card 1 -->
+      <div
+        class="group bg-surface-container p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-all duration-500">
+        <div
+          class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8 text-primary group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-4xl">directions_car</span>
+        </div>
+        <h3 class="font-title-md text-title-md mb-4 uppercase">LMV (Cars)</h3>
+        <p class="text-on-surface-variant mb-6">Master city traffic and highway maneuvers in our fleet of modern
+          hatchback and luxury sedans.</p>
+        <div class="flex items-center justify-between border-t border-outline-variant/20 pt-6">
+          <span class="text-primary font-title-md">₹4,500 - ₹8,000</span>
+          <span class="material-symbols-outlined text-outline-variant">arrow_forward</span>
+        </div>
+      </div>
+
+      <!-- Service Card 2 -->
+      <div
+        class="group bg-surface-container p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-all duration-500">
+        <div
+          class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8 text-primary group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-4xl">two_wheeler</span>
+        </div>
+        <h3 class="font-title-md text-title-md mb-4 uppercase">MCWG (Bikes)</h3>
+        <p class="text-on-surface-variant mb-6">From geared motorcycles to automatic scooters, we cover balance, safety,
+          and performance.</p>
+        <div class="flex items-center justify-between border-t border-outline-variant/20 pt-6">
+          <span class="text-primary font-title-md">₹2,500 - ₹4,000</span>
+          <span class="material-symbols-outlined text-outline-variant">arrow_forward</span>
+        </div>
+      </div>
+
+      <!-- Service Card 3 -->
+      <div
+        class="group bg-surface-container p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-all duration-500">
+        <div
+          class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8 text-primary group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-4xl">commute</span>
+        </div>
+        <h3 class="font-title-md text-title-md mb-4 uppercase">Refresher Course</h3>
+        <p class="text-on-surface-variant mb-6">Personalized sessions for license holders looking to regain confidence
+          or learn advanced skills.</p>
+        <div class="flex items-center justify-between border-t border-outline-variant/20 pt-6">
+          <span class="text-primary font-title-md">₹500 / Session</span>
+          <span class="material-symbols-outlined text-outline-variant">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works (Bento Layout) -->
+  <section class="bg-surface-container-lowest py-24">
+    <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+      <h2 class="font-headline-lg text-headline-lg text-center mb-20 uppercase tracking-tighter">The Journey to Mastery
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div
+          class="bg-surface-container-high p-8 rounded-2xl border border-outline-variant/5 relative overflow-hidden h-64 flex flex-col justify-end">
+          <span
+            class="absolute top-4 right-4 font-display-lg text-[100px] leading-none opacity-5 text-primary">01</span>
+          <h4 class="font-title-md text-primary mb-2">Enroll</h4>
+          <p class="text-on-surface-variant text-sm">Submit your documents and select your preferred schedule and
+            vehicle type.</p>
+        </div>
+        <div
+          class="bg-surface-container-high p-8 rounded-2xl border border-outline-variant/5 relative overflow-hidden h-64 flex flex-col justify-end">
+          <span
+            class="absolute top-4 right-4 font-display-lg text-[100px] leading-none opacity-5 text-primary">02</span>
+          <h4 class="font-title-md text-primary mb-2">Learn</h4>
+          <p class="text-on-surface-variant text-sm">Interactive simulator sessions followed by on-road training with
+            experts.</p>
+        </div>
+        <div
+          class="bg-surface-container-high p-8 rounded-2xl border border-outline-variant/5 relative overflow-hidden h-64 flex flex-col justify-end">
+          <span
+            class="absolute top-4 right-4 font-display-lg text-[100px] leading-none opacity-5 text-primary">03</span>
+          <h4 class="font-title-md text-primary mb-2">Practice</h4>
+          <p class="text-on-surface-variant text-sm">Intensive maneuvers training including reverse parking, uphill, and
+            emergency braking.</p>
+        </div>
+        <div
+          class="bg-surface-container-high p-8 rounded-2xl border border-outline-variant/5 relative overflow-hidden h-64 flex flex-col justify-end">
+          <span
+            class="absolute top-4 right-4 font-display-lg text-[100px] leading-none opacity-5 text-primary">04</span>
+          <h4 class="font-title-md text-primary mb-2">Licensed</h4>
+          <p class="text-on-surface-variant text-sm">Complete RTO assistance for your DL test. Drive away with legal
+            freedom.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-24 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop" id="why-us">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="relative group">
+        <div class="absolute -inset-4 bg-primary/20 rounded-xl blur-2xl transition-all group-hover:bg-primary/30"></div>
+        <div class="relative rounded-xl overflow-hidden shadow-2xl">
+          <img class="w-full h-auto grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+            alt="A cinematic, high-contrast photograph of a professional driving instructor"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlY4AKAvH-eD1SbJMAi_AY3UMOW1dDhQWRJut7UPLChA9bXQbgi_LnZHaJYRzQI_Ucy3g_tMCRjY-Wj2G9ASt4IQVm3MSz2nJ5rvR9dpfEaay5VRQWM1NoFxXYV6IY1ADoETASOE-HctlRXR-7hiVcMOIeHFLPLVeEN8JTpnEFU7npEnCOXV6HjgHXJogg2baOear3e9mbVQDkASE4hRqC0s53Lq3CFaNUgVwg3ixxpmAIR_rbxjvOT1cATaSMmVZnfozcmkYVVA0" />
+        </div>
+      </div>
+      <div>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-8 uppercase leading-tight">Why Bangalore Trusts
+          Shariff Academy</h2>
+        <div class="space-y-10">
+          <div class="flex gap-6">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined">verified_user</span>
+            </div>
+            <div>
+              <h4 class="font-title-md mb-2">Safety First Architecture</h4>
+              <p class="text-on-surface-variant">Dual-control vehicles and comprehensive insurance for peace of mind
+                during every lesson.</p>
+            </div>
+          </div>
+          <div class="flex gap-6">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined">psychology</span>
+            </div>
+            <div>
+              <h4 class="font-title-md mb-2">Expert Instructors</h4>
+              <p class="text-on-surface-variant">Patient, RTO-certified coaches with over 10,000 hours of combined
+                teaching experience.</p>
+            </div>
+          </div>
+          <div class="flex gap-6">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined">schedule</span>
+            </div>
+            <div>
+              <h4 class="font-title-md mb-2">Flexible Timing</h4>
+              <p class="text-on-surface-variant">Early morning to late evening batches. We work around your professional
+                schedule.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-surface-container py-24">
+    <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-16">
+        <span class="font-label-sm text-primary uppercase">Success Stories</span>
+        <h2 class="font-headline-lg text-headline-lg mt-4 uppercase">What Our Students Say</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div class="bg-background p-8 rounded-xl border border-outline-variant/10">
+          <div class="flex text-primary mb-4">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic text-on-surface mb-6">"The best decision I made for my driving license. The instructors are
+            incredibly patient and professional. I passed my DL test on the first try!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface-variant"></div>
+            <div>
+              <p class="font-title-md text-sm">Aditya Verma</p>
+              <p class="text-xs text-on-surface-variant">Student</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-background p-8 rounded-xl border border-outline-variant/10">
+          <div class="flex text-primary mb-4">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic text-on-surface mb-6">"Highly recommend for women learners. I felt very safe and comfortable.
+            They focus on tiny details like parking and lane changes which helped a lot."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface-variant"></div>
+            <div>
+              <p class="font-title-md text-sm">Priya Sharma</p>
+              <p class="text-xs text-on-surface-variant">Student</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-background p-8 rounded-xl border border-outline-variant/10">
+          <div class="flex text-primary mb-4">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic text-on-surface mb-6">"Prompt service and clear communication regarding documentation. The 15
+            years of experience really shows in their teaching methodology."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface-variant"></div>
+            <div>
+              <p class="font-title-md text-sm">Rahul Nair</p>
+              <p class="text-xs text-on-surface-variant">Student</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-24 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop" id="pricing">
+    <h2 class="font-headline-lg text-headline-lg text-center mb-16 uppercase">Investment in Mastery</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Basic -->
+      <div
+        class="pricing-card-hover bg-surface-container p-10 rounded-2xl border border-outline-variant/10 flex flex-col transition-all duration-300">
+        <span class="font-label-sm text-on-surface-variant uppercase mb-4">Foundation</span>
+        <h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mb-2">Basic</h3>
+        <p class="text-primary font-display-lg text-headline-lg mb-8">₹5,000</p>
+        <ul class="space-y-4 mb-10 flex-grow">
+          <li class="flex items-center gap-3 text-on-surface-variant"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> 10 Practice Classes</li>
+          <li class="flex items-center gap-3 text-on-surface-variant"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Basic Road Rules</li>
+          <li class="flex items-center gap-3 text-on-surface-variant"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Document Assistance</li>
+        </ul>
+        <button
+          class="w-full py-4 border border-outline-variant hover:bg-surface-variant transition-colors rounded-lg font-title-md">Choose
+          Plan</button>
+      </div>
+
+      <!-- Premium (Featured) -->
+      <div
+        class="pricing-card-hover bg-surface-container-high p-10 rounded-2xl border-2 border-primary relative flex flex-col transition-all duration-300 transform scale-105">
+        <div
+          class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+          Most Popular</div>
+        <span class="font-label-sm text-primary uppercase mb-4">Recommended</span>
+        <h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mb-2">Elite</h3>
+        <p class="text-primary font-display-lg text-headline-lg mb-8">₹8,500</p>
+        <ul class="space-y-4 mb-10 flex-grow">
+          <li class="flex items-center gap-3 text-on-surface"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> 20 Practice Classes</li>
+          <li class="flex items-center gap-3 text-on-surface"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Simulator Training</li>
+          <li class="flex items-center gap-3 text-on-surface"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Night Driving Session</li>
+          <li class="flex items-center gap-3 text-on-surface"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Guaranteed License Support</li>
+        </ul>
+        <button
+          class="w-full py-4 bg-primary text-on-primary glow-button transition-all rounded-lg font-title-md">Enroll
+          Now</button>
+      </div>
+
+      <!-- Pro -->
+      <div
+        class="pricing-card-hover bg-surface-container p-10 rounded-2xl border border-outline-variant/10 flex flex-col transition-all duration-300">
+        <span class="font-label-sm text-on-surface-variant uppercase mb-4">Advanced</span>
+        <h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mb-2">Master</h3>
+        <p class="text-primary font-display-lg text-headline-lg mb-8">₹12,000</p>
+        <ul class="space-y-4 mb-10 flex-grow">
+          <li class="flex items-center gap-3 text-on-surface-variant"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> 30 Practice Classes</li>
+          <li class="flex items-center gap-3 text-on-surface-variant"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Highway Driving Mastery</li>
+          <li class="flex items-center gap-3 text-on-surface-variant"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Maintenance Basics</li>
+          <li class="flex items-center gap-3 text-on-surface-variant"><span
+              class="material-symbols-outlined text-primary text-sm">check_circle</span> Luxury Vehicle Experience</li>
+        </ul>
+        <button
+          class="w-full py-4 border border-outline-variant hover:bg-surface-variant transition-colors rounded-lg font-title-md">Choose
+          Plan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-surface-container-lowest py-24">
+    <div class="max-w-2xl mx-auto px-margin-mobile">
+      <h2 class="font-headline-lg text-headline-lg text-center mb-12 uppercase">Frequently Asked</h2>
+      <div class="space-y-4">
+        <details
+          class="group bg-surface-container p-6 rounded-lg border border-outline-variant/10 open:border-primary/30 transition-all">
+          <summary
+            class="font-title-md cursor-pointer list-none flex justify-between items-center group-open:text-primary">
+            What documents are required for DL?
+            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-on-surface-variant">You will need Age Proof (Aadhar, Birth Cert, or Passport), Address
+            Proof, and 4 Passport-size photographs. We handle the online application process for you.</p>
+        </details>
+        <details
+          class="group bg-surface-container p-6 rounded-lg border border-outline-variant/10 open:border-primary/30 transition-all">
+          <summary
+            class="font-title-md cursor-pointer list-none flex justify-between items-center group-open:text-primary">
+            How many days does it take to learn?
+            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-on-surface-variant">Our standard Elite course spans 20 sessions (usually 20-30 days
+            depending on your frequency). Most students gain confidence within 15 sessions.</p>
+        </details>
+        <details
+          class="group bg-surface-container p-6 rounded-lg border border-outline-variant/10 open:border-primary/30 transition-all">
+          <summary
+            class="font-title-md cursor-pointer list-none flex justify-between items-center group-open:text-primary">
+            Do you provide doorstep pickup?
+            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-on-surface-variant">Yes, doorstep pickup and drop facilities are available within a 5km
+            radius of our main branch in Bangalore.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
+  <section class="py-24 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop" id="contact">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div>
+        <h2 class="font-headline-lg text-headline-lg mb-4 uppercase">Let's Hit The Road</h2>
+        <p class="text-on-surface-variant mb-8">Skip the forms and chat directly with us. Select your training
+          preferences below to instantly generate your WhatsApp inquiry.</p>
+
+        <!-- Interactive WhatsApp inquiry builder -->
+        <div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/10 space-y-6">
+          <div>
+            <label class="block font-label-sm text-primary uppercase mb-3 tracking-wider">1. Select Vehicle Type</label>
+            <div class="grid grid-cols-3 gap-3" id="wa-vehicle-select">
+              <button type="button" onclick="selectWaOption('vehicle', 'Car (LMV)')"
+                class="wa-pill border border-outline-variant/30 hover:border-primary bg-surface-container-lowest px-3 py-2.5 rounded-lg text-sm transition-all focus:outline-none font-semibold text-center select-none active-pill"
+                data-value="Car (LMV)">
+                Car (LMV)
+              </button>
+              <button type="button" onclick="selectWaOption('vehicle', 'Bike (MCWG)')"
+                class="wa-pill border border-outline-variant/30 hover:border-primary bg-surface-container-lowest px-3 py-2.5 rounded-lg text-sm transition-all focus:outline-none font-semibold text-center select-none"
+                data-value="Bike (MCWG)">
+                Bike (MCWG)
+              </button>
+              <button type="button" onclick="selectWaOption('vehicle', 'Both')"
+                class="wa-pill border border-outline-variant/30 hover:border-primary bg-surface-container-lowest px-3 py-2.5 rounded-lg text-sm transition-all focus:outline-none font-semibold text-center select-none"
+                data-value="Both">
+                Both
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-label-sm text-primary uppercase mb-3 tracking-wider">2. Select Your Package</label>
+            <div class="grid grid-cols-3 gap-3" id="wa-package-select">
+              <button type="button" onclick="selectWaOption('package', 'Basic')"
+                class="wa-pill border border-outline-variant/30 hover:border-primary bg-surface-container-lowest px-3 py-2.5 rounded-lg text-sm transition-all focus:outline-none font-semibold text-center select-none"
+                data-value="Basic">
+                Basic
+              </button>
+              <button type="button" onclick="selectWaOption('package', 'Elite')"
+                class="wa-pill border border-outline-variant/30 hover:border-primary bg-surface-container-lowest px-3 py-2.5 rounded-lg text-sm transition-all focus:outline-none font-semibold text-center select-none active-pill"
+                data-value="Elite">
+                Elite
+              </button>
+              <button type="button" onclick="selectWaOption('package', 'Master')"
+                class="wa-pill border border-outline-variant/30 hover:border-primary bg-surface-container-lowest px-3 py-2.5 rounded-lg text-sm transition-all focus:outline-none font-semibold text-center select-none"
+                data-value="Master">
+                Master
+              </button>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <button onclick="sendWhatsAppInquiry()"
+              class="bg-[#25D366] text-white w-full py-4 rounded-xl font-title-md uppercase tracking-wider hover:brightness-110 transition-all shadow-[0_4px_20px_rgba(37,211,102,0.3)] flex items-center justify-center gap-3">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.739-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 2.01 14.069.99 11.45.989c-5.438 0-9.862 4.37-9.866 9.8.001 1.944.52 3.843 1.503 5.549L2.094 22.06l5.908-1.543l-.002-.001zM17.47 15.3c-.31-.154-1.834-.894-2.115-.995-.28-.102-.485-.153-.688.154-.203.306-.785.995-.963 1.198-.178.203-.356.229-.666.076-.31-.154-1.307-.476-2.49-1.52-1.183-1.047-1.95-1.57-2.128-1.876-.178-.306-.019-.47.135-.623.14-.137.31-.356.465-.535.156-.178.207-.306.31-.51.102-.203.05-.382-.025-.536-.076-.153-.688-1.637-.942-2.249-.248-.593-.5-.512-.688-.521-.178-.008-.382-.01-.585-.01-.203 0-.534.076-.814.382-.28.306-1.07 1.033-1.07 2.52 0 1.488 1.093 2.928 1.246 3.131.153.203 2.15 3.249 5.208 4.546.727.309 1.294.493 1.737.632.73.23 1.396.198 1.922.12.585-.087 1.834-.74 2.088-1.455.254-.715.254-1.327.178-1.455-.076-.128-.28-.203-.59-.356z" />
+              </svg>
+              Start Enrollment on WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="mt-8 pt-8 border-t border-outline-variant/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary flex-shrink-0">
+              <span class="material-symbols-outlined">chat</span>
+            </div>
+            <div>
+              <p class="font-label-sm text-on-surface-variant uppercase text-[10px] tracking-wider">WhatsApp Us</p>
+              <a href="https://wa.me/917795488013?text=Hi,%20I'm%20interested%20in%20driving%20lessons" target="_blank"
+                class="font-bold text-lg text-on-surface hover:text-primary transition-colors">+91 77954 88013</a>
+            </div>
+          </div>
+          <div class="sm:text-right">
+            <p class="text-sm text-on-surface-variant">Available Daily</p>
+            <p class="font-bold text-primary text-sm">9:00 AM - 8:00 PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-6">
+        <div
+          class="bg-surface-container h-[400px] rounded-2xl overflow-hidden grayscale border border-outline-variant/20 relative">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7513524278457!2d77.5954744!3d12.9271693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15b65a1b71d7%3A0x9702e189f87a4c6c!2sShariff+Driving+School!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            class="w-full h-full border-0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div
+            class="absolute bottom-6 left-6 right-6 bg-surface-container-lowest/90 backdrop-blur-md p-6 rounded-xl pointer-events-none">
+            <p class="font-title-md text-primary mb-2">Academy Headquarters</p>
+            <p class="text-on-surface-variant text-sm">No. 953, 32nd E Cross Rd, Jayanagar 4th T Block, <br />Bangalore,
+              Karnataka - 560041</p>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/LHdcLy2J8mABk2Xw5" target="_blank"
+          class="block bg-surface-container-high p-6 rounded-xl border border-outline-variant/10 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300 group flex items-center justify-between">
+          <div>
+            <p class="font-label-sm text-primary mb-1 uppercase tracking-wider">Academy Headquarters Location</p>
+            <p class="text-sm text-on-surface">Click to view classes location on Google Maps</p>
+          </div>
+          <span
+            class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest border-t border-outline-variant/20 py-20 mt-12">
+    <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+        <div class="max-w-sm">
+          <h2 class="font-title-md text-primary mb-6 uppercase tracking-tighter">Shariff Driving Academy</h2>
+          <p class="text-on-surface-variant">Building a safer Bangalore, one driver at a time. Professional excellence
+            in automotive training since 2009.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+          <div>
+            <h4 class="font-label-sm text-on-surface mb-6 uppercase">Quick Links</h4>
+            <ul class="space-y-4">
+              <li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Fleet
+                  Logistics</a></li>
+              <li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Instructor
+                  Portal</a></li>
+              <li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Privacy
+                  Policy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-label-sm text-on-surface mb-6 uppercase">Legal</h4>
+            <ul class="space-y-4">
+              <li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Terms of
+                  Service</a></li>
+              <li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">RTO
+                  Compliance</a></li>
+              <li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Cookie
+                  Policy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-label-sm text-on-surface mb-6 uppercase">Connect</h4>
+            <div class="flex gap-4">
+              <span
+                class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">public</span>
+              <span
+                class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">alternate_email</span>
+              <span
+                class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="pt-12 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="font-body-md text-on-surface-variant text-sm">© 2026 SHARIFF LUXURY DRIVING ACADEMY. ALL RIGHTS
+          RESERVED.</p>
+        <button class="text-primary flex items-center gap-2 font-label-sm uppercase hover:underline"
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          Back to top <span class="material-symbols-outlined">north</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Initial setup for sections except hero scroll video container
+    document.querySelectorAll('section, .pricing-card-hover, .group').forEach(el => {
+      el.classList.add('scroll-fade');
+      observer.observe(el);
+    });
+
+    // Simple smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 100) {
+        nav.classList.add('py-4');
+        nav.classList.remove('py-6');
+      } else {
+        nav.classList.add('py-6');
+        nav.classList.remove('py-4');
+      }
+    });
+
+    // WhatsApp Inquiry Widget Logic
+    let selectedVehicle = 'Car (LMV)';
+    let selectedPackage = 'Elite';
+
+    window.selectWaOption = function (type, value) {
+      if (type === 'vehicle') {
+        selectedVehicle = value;
+        document.querySelectorAll('#wa-vehicle-select .wa-pill').forEach(btn => {
+          if (btn.getAttribute('data-value') === value) {
+            btn.classList.add('active-pill');
+          } else {
+            btn.classList.remove('active-pill');
+          }
+        });
+      } else if (type === 'package') {
+        selectedPackage = value;
+        document.querySelectorAll('#wa-package-select .wa-pill').forEach(btn => {
+          if (btn.getAttribute('data-value') === value) {
+            btn.classList.add('active-pill');
+          } else {
+            btn.classList.remove('active-pill');
+          }
+        });
+      }
+    }
+
+    window.sendWhatsAppInquiry = function () {
+      const baseUrl = "https://wa.me/917795488013";
+      const message = `Hi Shariff Academy, I'm interested in driving lessons.\n\nPreferences:\n- Vehicle: ${selectedVehicle}\n- Package: ${selectedPackage}`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`${baseUrl}?text=${encodedMessage}`, '_blank');
+    }
+  </script>
+  <!-- Load custom scroll-video controller script -->
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>
